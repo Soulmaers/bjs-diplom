@@ -2,21 +2,21 @@
 
 const userForm = new UserForm();
 
-userForm.loginFormCallback=(data)=>{
-    ApiConnector.login(data, response=>{
-        if(response.success===false){
+userForm.loginFormCallback = (data) => {
+    ApiConnector.login(data, response => {
+        if (!response.success) {
             userForm.setLoginErrorMessage(response.error);
-        }else{
+        } else {
             location.reload();
         }
     });
 }
 
-userForm.registerFormCallback=(data)=>{
-    ApiConnector.register(data, response=>{
-        if(response.success===false){
+userForm.registerFormCallback = (data) => {
+    ApiConnector.register(data, response => {
+        if (!response.success) {
             userForm.setRegisterErrorMessage(response.error);
-        }else{
+        } else {
             location.reload();
         }
     });
