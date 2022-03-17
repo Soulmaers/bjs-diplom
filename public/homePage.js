@@ -16,3 +16,16 @@ ApiConnector.current(response => {
     }
 });
 
+//получение курсов текущих валют
+
+const ratesBoard = new RatesBoard();
+const func = () => {
+    ApiConnector.getStocks = (response => {
+        if (response.success) {
+            ratesBoard.clearTable();
+            ratesBoard.fillTable(response.data);
+        };
+    });
+}
+func();
+setInterval(func, 60000);
