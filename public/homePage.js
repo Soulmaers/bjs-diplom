@@ -1,11 +1,18 @@
 "use strict"
-
+//логаут
 const logoutButton = new LogoutButton();
-logoutButton.action = (logout) => {
+logoutButton.action = () => {
     ApiConnector.logout(response => {
-        location.reload();
-
-    })
-
-
+        if (response.success) {
+            location.reload();
+        }
+    });
 }
+
+//отображение данных пользователя
+ApiConnector.current(response => {
+    if (response.success) {
+        ProfileWidget.showProfile(response.data);
+    }
+});
+
