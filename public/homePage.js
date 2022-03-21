@@ -19,7 +19,7 @@ ApiConnector.current(response => {
 //получение курсов текущих валют
 
 const ratesBoard = new RatesBoard();
-const func = (ratesBoard) => {
+const func = () => {
     ApiConnector.getStocks(response => {
         if (response.success) {
             ratesBoard.clearTable();
@@ -27,8 +27,8 @@ const func = (ratesBoard) => {
         };
     });
 }
-func(ratesBoard);
-setInterval(func, 60000);
+func();
+setInterval(func, 60000, ratesBoard);
 
 //операция с деньгами-пополнение баланса
 const moneyManager = new MoneyManager();
