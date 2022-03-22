@@ -28,7 +28,7 @@ const func = () => {
     });
 }
 func();
-setInterval(func, 60000, ratesBoard);
+setInterval(func, 60000);
 
 //операция с деньгами-пополнение баланса
 const moneyManager = new MoneyManager();
